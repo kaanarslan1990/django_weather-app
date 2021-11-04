@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if messages %}
+    
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+        
+    {% endif %}
+        
+
+    <h1>Weather App</h1>
+    <br>
+    <form action="">
+        <input name="q">
+        <input type="submit" value="Add">
+    </form>
+
+    <br>
+    {% for city in city_data %} <br>
+    {{ city.city.name }} <br>
+    {{ city.temp }} <br>
+    <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="icon">
+    {{ city.desc }} <br> 
+    <button><a href="{% url 'delete' city.city.id %}">Delete</a></button>  <hr>   
+    {% endfor %}
+    <br>
+    
+    <footer style="width: % 100px;; text-align:center;">
+   
+            <p style="color:rgb(234, 234, 240);background-color:blue;">Khan&Lion<a href="https://github.com/kaanarslan1990" style="text-align: center;"><button style="color:white; background-color: black;"> GitHub</button></a></p>
+
+        
+    </footer>
+</body>
+</html>
